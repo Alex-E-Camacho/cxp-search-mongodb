@@ -13,5 +13,14 @@ exports.search_list = (req, res) => {
 };
 
 exports.search_create_post = (req, res) => {
-    res.send('NOT IMPLEMENTED: Search create POST');
+    // res.send('NOT IMPLEMENTED: Search create POST');
+    let newSearch = new Search({ search_text: req.body.search_text });
+
+    newSearch.save((err, savedSearch) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(savedSearch);
+        }
+    })
 };
