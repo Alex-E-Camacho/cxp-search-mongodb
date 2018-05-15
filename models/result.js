@@ -8,4 +8,4 @@ let ResultSchema = new Schema(
     }
 );
 
-module.exports = mongoose.model();
+module.exports = mongoose.model('Result', ResultSchema);

@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const search_controller = require('../controllers/searchController');
 
-router.get('/', (req, res) => {
-    res.send('hit /search redirect');
-});
+//Search Routes
+router.get('/', search_controller.search_home);
 
-router.post('/', (req, res) => {
-    res.send('POST /search hit');
-})
+router.get('/results', search_controller.search_results_get);
+
+router.post('/', search_controller.search_create_post);
 
 module.exports = router;

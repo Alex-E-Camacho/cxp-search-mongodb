@@ -7,4 +7,4 @@ let SearchSchema = new Schema(
     }
 );
 
-module.exports = mongoose.model();
+module.exports = mongoose.model('Search', SearchSchema);

@@ -1,12 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const result_controller = require('../controllers/resultController');
 
-router.get('/', (req,res) => {
-    res.send('hit /result');
-});
+//Result routes
 
-router.post('/', (req, res) => {
-    res.send('hit /search POST route');
-})
+router.post('/', result_controller.result_create_post);
 
 module.exports = router;
