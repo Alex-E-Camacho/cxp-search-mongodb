@@ -13,7 +13,6 @@ exports.search_list = (req, res) => {
 };
 
 exports.search_create_post = (req, res) => {
-    // res.send('NOT IMPLEMENTED: Search create POST');
     let newSearch = new Search({ search_text: req.body.search_text });
 
     newSearch.save((err, savedSearch) => {
