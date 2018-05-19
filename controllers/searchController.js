@@ -15,13 +15,12 @@ exports.search_list = (req, res) => {
 
 exports.search_create_post = (req, res, next) => {
     let newSearch = new Search({ search_text: req.body.search_text });
-
     newSearch.save((err, savedSearch) => {
         if (err) {
             console.log(err);
         } else {
             req.searchData = savedSearch;
         }
-          next();
+          next(err, req.body.results);
     })
 };
