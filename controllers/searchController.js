@@ -21,6 +21,6 @@ exports.search_create_post = (req, res, next) => {
         } else {
             req.searchData = savedSearch;
         }
-          next(err, req.body.results);
+          next(err, req.body.result);
     })
 };
