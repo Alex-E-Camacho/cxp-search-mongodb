@@ -1,12 +1,18 @@
 const Search = require('../models/search');
-const Result = require('./resultController');
+const bingSearch = require('../helpers/bingSearch').bingSearch;
+const axios = require('axios');
 
 exports.search_home = (req, res) => {
     res.send('NOT IMPLEMENTED: Search home page');
 };
 
 exports.search_results_get = (req, res) => {
-    res.send('NOT IMPLEMENTED: Search results GET')
+    axios.all([
+        bingSearch(req.query.search_query)
+    ])
+    .then(axios.spread((bing) => {
+        res.send(bing);
+    }));
 }
 
 exports.search_list = (req, res) => {
